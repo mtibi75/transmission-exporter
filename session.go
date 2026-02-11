@@ -50,9 +50,9 @@ type (
 		SeedQueueSize         int     `json:"seed-queue-size"`
 		SeedRatioLimit        float64 `json:"seedRatioLimit"`
 		SeedRatioLimited      bool    `json:"seedRatioLimited"`
-		SpeedLimitDown        int     `json:"speed-limit-down"`
+		SpeedLimitDown		  float64 `json:"speed-limit-down"`
 		SpeedLimitDownEnabled bool    `json:"speed-limit-down-enabled"`
-		SpeedLimitUp          int     `json:"speed-limit-up"`
+		SpeedLimitUp		  float64 `json:"speed-limit-up"`
 		SpeedLimitUpEnabled   bool    `json:"speed-limit-up-enabled"`
 		//Start_added_torrents         bool   `json:"start-added-torrents"`
 		//Trash_original_torrent_files bool   `json:"trash-original-torrent-files"`
