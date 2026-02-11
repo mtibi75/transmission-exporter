@@ -128,7 +128,9 @@ func (sc *SessionCollector) Collect(ch chan<- prometheus.Metric) {
 		log.Printf("failed to get session: %v", err)
 		return
 	}
-
+	if session == nil {
+        return
+    }
 	ch <- prometheus.MustNewConstMetric(
 		sc.AltSpeedDown,
 		prometheus.GaugeValue,
@@ -183,13 +185,13 @@ func (sc *SessionCollector) Collect(ch chan<- prometheus.Metric) {
 	ch <- prometheus.MustNewConstMetric(
 		sc.SpeedLimitDown,
 		prometheus.GaugeValue,
-		float64(session.SpeedLimitDown),
+		session.SpeedLimitDown,
 		boolToString(session.SpeedLimitDownEnabled),
 	)
 	ch <- prometheus.MustNewConstMetric(
 		sc.SpeedLimitUp,
 		prometheus.GaugeValue,
-		float64(session.SpeedLimitUp),
+		session.SpeedLimitUp,
 		boolToString(session.SpeedLimitUpEnabled),
 	)
 	ch <- prometheus.MustNewConstMetric(
